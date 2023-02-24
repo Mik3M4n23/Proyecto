@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>DNS</title>
+</head>
+<body>
+
+  <!-- Header y Navegacion -->
+  <ul>
+    <li><a href="#" class="btn" id="inicio">Inicio</a></li>
+    <li><a href="#" class="btn" id="definicion">Definicion</a></li>
+    <li><a href="#" class="btn" id="funcionalidad">Funcionalidad</a></li>
+    <li><a href="#" class="btn" id="servidores">Servidores</a></li>
+    <li><a href="#" class="btn" id="tipos">Tipos</a></li>
+    <li><a href="#" class="btn" id="pasos">Pasos</a></li>
+  </ul>
+
+  <!-- Contenid principal -->
+  <div class="paginas">
+    <div class="pagina active" id="pagina_inicio">
+      <div class="contenido">
+        <img src="./portada.webp" alt="Portada" id="foto">
+      </div>
+    </div>
+    <div class="pagina" id="pagina_definicion">
+      <div class="contenido">
+        <h1 class="centrado">Seccion: ¿Qué es DNS?</h1>
+        <p>
+          El sistema de nombres de dominio (DNS) es el directorio telefónico de Internet. Las personas acceden a la información en línea a través de nombres de dominio como nytimes.com o espn.com. Los navegadores web interactúan mediante direcciones de Protocolo de Internet (IP). El DNS traduce los nombres de dominio a direcciones IP para que los navegadores puedan cargar los recursos de Internet.<br><br>
+          Cada dispositivo conectado a Internet tiene una dirección IP única que otros equipos pueden usar para encontrarlo. Los servidores DNS suprimen la necesidad de que los humanos memoricen direcciones IP tales como 192.168.1.1 (en IPv4) o nuevas direcciones IP alfanuméricas más complejas, tales como 2400:cb00:2048:1::c629:d7a2 (en IPv6).</p>
+      </div>
+    </div>
+    <div class="pagina" id="pagina_funcionalidad">
+      <div class="contenido">
+        <h1 class="Centrado">Seccion: ¿Cómo funciona DNS?</h1>
+        <p>
+          El proceso de solución de DNS supone convertir un nombre de servidor (como www.ejemplo.com) en una dirección IP compatible con el ordenador (como 192.168.1.1). Se da una dirección IP a cada dispositivo en Internet, y esa dirección será necesaria para encontrar el dispositivo apropiado de Internet, al igual que se usa la dirección de una calle para encontrar una casa concreta. Cuando un usuario quiere cargar una página, se debe traducir lo que el usuario escribe en su navegador web (ejemplo.com) a una dirección que el ordenador pueda entender para poder  localizar la página web de ejemplo.com.
+          <br>
+          Para entender el proceso de la resolución de DNS, es importante conocer los diferentes componentes de hardware por los que debe pasar una consulta de DNS. Para el navegador web, la búsqueda de DNS se produce "en segundo plano" y no requiere ninguna interacción del ordenador del usuario, aparte de la solicitud  inicial.
+        </p>
+      </div>
+    </div>
+    <div class="pagina" id="pagina_tipos">
+      <div class="contenido">
+        <h1 class="Centrado">Seccion: Cuál es la diferencia entre un servidor de DNS autoritativo y un solucionador de DNS recursivo?</h1>
+        <p>Solucionador de DNS recursivo</p>
+        <p>
+          El solucionador recursivo es el equipo que responde a una solicitud recursiva del cliente y dedica tiempo a detectar el registro DNS. Lo hace mediante una serie de solicitudes hasta que alcanza al servidor de nombres DNS autoritativo para el registro solicitado (o se vuelve inactivo o devuelve un error si no se encuentra ningún registro). Afortunadamente, los solucionadores de DNS recursivos no siempre tienen que hacer varias solicitudes para inspeccionar los registros necesarios para responder a un cliente. El almacenamiento en caché es un proceso de persistencia de datos que ayuda a saltarse las solicitudes necesarias sirviendo antes el registro del recurso solicitado en la búsqueda DNS.
+        </p>
+        <p>Servidor DNS autoritativo</p>
+        <p>
+          En resumen, un servidor DNS autoritativo es un servidor que alberga realmente registros de recursos DNS y es responsable de los mismos. Este es el servidor al final de la cadena de búsqueda DNS que responderá con el registro del recurso consultado, permitiendo finalmente que el navegador web haga la solicitud para llegar a la dirección IP necesaria para acceder a un sitio web u otros recursos web. Un servidor de nombres autoritativo puede satisfacer solicitudes de sus propios datos sin necesidad de consultar a otros recursos, ya que es la fuente final de verdad para ciertos registros DNS.
+        </p>
+      </div>
+    </div>
+    <div class="pagina" id="pagina_pasos">
+      <div class="contenido">
+        <h1 class="Centrado">Seccion: Los 8 pasos de una búsqueda DNS
+        </h1>
+        <p>
+          <ol>
+            <li>Un usuario escribe “ejemplo.com” en un navegador web y la consulta recorre Internet y es recibida por un solucionador de DNS recursivo.</li>
+            <li>
+              El solucionador consulta a continuación un servidor de nombres raíz de DNS (.).
+            </li>
+            <li>
+              El servidor raíz responde a continuación al solucionador con la dirección de un servidor de DNS de dominio de primer nivel (TLD) (p.ej. .com o .net), que almacena la información para sus dominios. Al buscar ejemplo.com, nuestra solicitud se dirige al TLD .com.
+            </li>
+            <li>El solucionador hará a continuación una solicitud al dominio de primer nivel .com.</li>
+            <li>El servidor TLD responderá a continuación con la dirección IP del servidor de nombres del dominio, ejemplo.com.</li>
+            <li>Finalmente, el solucionador recursivo envía una consulta al servidor de nombres del dominio.</li>
+            <li>Por ejemplo, la dirección IP se devolverá al solucionador desde el servidor de nombres.</li>
+            <li>El solucionador de DNS responderá a continuación al navegador web con la dirección IP del dominio solicitado inicialmente.</li>
+          </ol>
+        </p>
+      </div>
+    </div>
+    <div class="pagina" id="pagina_servidores">
+      <div class="contenido">
+        <h1 class="Centrado">Seccion: Hay 4 servidores DNS implicados en la carga de un sitio web</h1>
+        <div>
+          <p>
+
+            <ul>
+              <li>
+                Recursor de DNS: es como un bibliotecario al que se le pide que busque un libro determinado en la biblioteca. El recursor DNS es un servidor diseñado para recibir consultas desde equipos cliente mediante aplicaciones como navegadores web. Normalmente, el recursor será el responsable de hacer solicitudes adicionales para satisfacer la consulta de DNS del cliente.
+              </li>
+              <li>
+                Servidor de nombres raíz: es el primer paso para traducir (solucionar) los nombres de servidor legibles en direcciones IP. Se puede comparar a un índice en una biblioteca que apunta a diferentes estanterías de libros. Generalmente sirve como referencia de otras ubicaciones más específicas.
+              </li>
+              <li>
+                Servidor de nombres TLD: el servidor de dominio de nivel superior (TLD) se puede comparar con una estantería de libros en una biblioteca. Es el paso siguiente en la búsqueda de una dirección IP específica y aloja la última parte de un nombre de servidor (en ejemplo.com, el servidor TLD es "com").
+              </li>
+              <li>
+                Servidor de nombres autoritativo: se puede interpretar como un diccionario en una estantería de libros, en el que se puede consultar la definición de un nombre específico. El servidor de nombres autoritativo es la última parada en la consulta del servidor de nombres. Si cuenta con acceso al registro solicitado, devolverá la dirección IP del nombre del servidor solicitado al recursor de DNS (el bibliotecario) que hizo la solicitud inicial.
+              </li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Funcionalidad de JavaScript -->
+  <script src="./app.js"></script>
+</body>
+</html>
